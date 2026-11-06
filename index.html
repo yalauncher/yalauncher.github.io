@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="icon" type="image/png" href="data:image/png;base64,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">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YA Launcher — Yet Another Launcher! | от JCorp</title>
+<style>
+  :root {
+    --bg: #161a17;
+    --panel: #1e2420;
+    --gold: #c8a84b;
+    --gold-bright: #d9bd66;
+    --text: #f2ead8;
+    --muted: #b0a68c;
+    --green: #8fd06a;
+    --border: #6a6a58;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ===== шапка ===== */
+  header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 28px;
+    border-bottom: 1px solid rgba(200, 168, 75, .25);
+    position: sticky;
+    top: 0;
+    background: rgba(22, 26, 23, .92);
+    backdrop-filter: blur(8px);
+    z-index: 10;
+  }
+  .logo {
+    width: 40px; height: 40px;
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    display: grid; place-items: center;
+    font: bold 16px Georgia, serif;
+    color: var(--gold);
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+  .brand { line-height: 1.2; }
+  .brand b { font: bold 17px Georgia, serif; letter-spacing: 2px; }
+  .brand small { color: var(--muted); font-size: 12px; display: block; }
+  nav { margin-left: auto; display: flex; gap: 22px; }
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color .2s;
+  }
+  nav a:hover { color: var(--gold); }
+
+  /* ===== герой ===== */
+  .hero {
+    text-align: center;
+    padding: 72px 20px 56px;
+  }
+  .hero .logo-big {
+    width: 96px; height: 96px;
+    margin: 0 auto 24px;
+    border: 3px solid var(--gold);
+    border-radius: 22px;
+    display: grid; place-items: center;
+    font: bold 36px Georgia, serif;
+    color: var(--gold);
+    box-shadow: 0 0 60px rgba(200, 168, 75, .15);
+  }
+  .hero h1 {
+    font: bold 42px Georgia, serif;
+    letter-spacing: 4px;
+  }
+  .hero .tagline {
+    color: var(--gold);
+    font-style: italic;
+    font-size: 18px;
+    margin-top: 6px;
+  }
+  .hero .from {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 4px;
+  }
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 26px 0 18px;
+    padding: 8px 18px;
+    border: 1px solid rgba(143, 208, 106, .4);
+    border-radius: 999px;
+    color: var(--green);
+    font-size: 14px;
+    background: rgba(143, 208, 106, .07);
+  }
+  .status::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+  }
+  .btn {
+    display: inline-block;
+    background: var(--gold);
+    color: #241d08;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 14px 38px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background .2s, transform .1s;
+  }
+  .btn:hover { background: var(--gold-bright); }
+  .btn:active { transform: scale(.97); }
+  .hero .note {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 12px;
+  }
+
+  /* ===== возможности ===== */
+  section { max-width: 960px; margin: 0 auto; padding: 40px 20px; width: 100%; }
+  section h2 {
+    font: bold 26px Georgia, serif;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  section .sub {
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid rgba(200, 168, 75, .35);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .card .icon { font-size: 28px; margin-bottom: 12px; }
+  .card h3 {
+    font-size: 17px;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .card p { color: var(--muted); font-size: 14px; }
+
+  /* ===== версии ===== */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .chips .chip {
+    background: rgba(0, 0, 0, .45);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 7px 18px;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .chips .chip.more { color: var(--muted); border-style: dashed; }
+
+  /* ===== подвал ===== */
+  footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 36px 20px 28px;
+    border-top: 1px solid rgba(200, 168, 75, .25);
+  }
+  footer .splash {
+    color: #ffff55;
+    font: italic bold 15px 'Segoe UI', sans-serif;
+    cursor: pointer;
+    user-select: none;
+  }
+  footer .splash:hover { text-shadow: 0 0 10px rgba(255, 255, 85, .5); }
+  footer .copy { color: var(--muted); font-size: 13px; margin-top: 10px; }
+
+  @media (max-width: 560px) {
+    nav { display: none; }
+    .hero h1 { font-size: 30px; }
+    .hero .logo-big { width: 72px; height: 72px; font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">YA</div>
+  <div class="brand">
+    <b>YA LAUNCHER</b>
+    <small>Yet Another Launcher!</small>
+  </div>
+  <nav>
+    <a href="#features">Возможности</a>
+    <a href="#versions">Версии</a>
+    <a href="#download">Скачать</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="logo-big">YA</div>
+  <h1>YA LAUNCHER</h1>
+  <div class="tagline">Yet Another Launcher!</div>
+  <div class="from">Лаунчер для Minecraft от компании JCorp</div>
+  <div class="status">Готов к запуску: доступно 103 версии</div>
+  <div id="download">
+    <a class="btn" href="data:application/octet-stream;base64," download="YALauncher-Setup.exe">Скачать для Windows</a>
+  </div>
+  <div class="note">Windows 10/11 · Java подключается автоматически</div>
+</div>
+
+<section id="features">
+  <h2>Что внутри</h2>
+  <div class="sub">Три причины нажать «Играть» и не думать больше ни о чём</div>
+  <div class="cards">
+    <div class="card">
+      <div class="icon">📦</div>
+      <h3>103 версии из коробки</h3>
+      <p>От релизов до снапшотов — выбирай любую версию и жми «Играть».
+         Ничего скачивать вручную не нужно.</p>
+    </div>
+    <div class="card">
+      <div class="icon">☕</div>
+      <h3>Java сама найдётся</h3>
+      <p>Оставь поле пустым — лаунчер сам найдёт или скачает нужную Java.
+         Или укажи свою через «Обзор...».</p>
+    </div>
+    <div class="card">
+      <div class="icon">🧩</div>
+      <h3>Серверы и моды рядом</h3>
+      <p>Кнопки «Серверы», «Моды» и «Папка игры» — всё в одном окне,
+         без лишних вкладок и настроек.</p>
+    </div>
+  </div>
+</section>
+
+<section id="versions">
+  <h2>Популярные версии</h2>
+  <div class="sub">А ещё — все снапшоты и релизы вплоть до самых первых</div>
+  <div class="chips">
+    <span class="chip">26.1</span>
+    <span class="chip">1.20.x</span>
+    <span class="chip">1.16.5</span>
+    <span class="chip">1.12.2</span>
+    <span class="chip more">…и ещё 98</span>
+  </div>
+</section>
+
+<footer>
+  <div class="splash" id="splash" title="Кликни — будет другая фраза">
+    Сделано на коленке!
+  </div>
+  <div class="copy">© 2026 JCorp. Все права защищены.</div>
+</footer>
+
+<script>
+  // те же сплэши, что в kSplashes лаунчера
+  const splashes = [
+    'Сделано на коленке!',
+    'tar — наш герой!',
+    'Никаких DLL из интернета!',
+    'Собрано за один вечер!',
+    'Абсолютно офлайн!',
+    'Это не TLauncher. Честно.',
+    'Yet Another Launcher!',
+    'Крипера нет. Пока что.',
+    'Не забудь про скин!',
+    'Осторожно, зомби!',
+    '100% твой собственный!',
+    'Больше пространства!'
+  ];
+  let i = Math.floor(Math.random() * splashes.length);
+  const el = document.getElementById('splash');
+  el.textContent = splashes[i];
+  el.addEventListener('click', () => {
+    i = (i + 1) % splashes.length;
+    el.textContent = splashes[i];
+  });
+</script>
+
+</body>
+</html>

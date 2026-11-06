@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YA Launcher — Yet Another Launcher! | от JCorp</title>
+<style>
+  :root {
+    --bg: #161a17;
+    --panel: #1e2420;
+    --gold: #c8a84b;
+    --gold-bright: #d9bd66;
+    --text: #f2ead8;
+    --muted: #b0a68c;
+    --green: #8fd06a;
+    --border: #6a6a58;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ===== шапка ===== */
+  header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 28px;
+    border-bottom: 1px solid rgba(200, 168, 75, .25);
+    position: sticky;
+    top: 0;
+    background: rgba(22, 26, 23, .92);
+    backdrop-filter: blur(8px);
+    z-index: 10;
+  }
+  .logo {
+    width: 40px; height: 40px;
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    display: grid; place-items: center;
+    font: bold 16px Georgia, serif;
+    color: var(--gold);
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+  .brand { line-height: 1.2; }
+  .brand b { font: bold 17px Georgia, serif; letter-spacing: 2px; }
+  .brand small { color: var(--muted); font-size: 12px; display: block; }
+  nav { margin-left: auto; display: flex; gap: 22px; }
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color .2s;
+  }
+  nav a:hover { color: var(--gold); }
+
+  /* ===== герой ===== */
+  .hero {
+    text-align: center;
+    padding: 72px 20px 56px;
+  }
+  .hero .logo-big {
+    width: 96px; height: 96px;
+    margin: 0 auto 24px;
+    border: 3px solid var(--gold);
+    border-radius: 22px;
+    display: grid; place-items: center;
+    font: bold 36px Georgia, serif;
+    color: var(--gold);
+    box-shadow: 0 0 60px rgba(200, 168, 75, .15);
+  }
+  .hero h1 {
+    font: bold 42px Georgia, serif;
+    letter-spacing: 4px;
+  }
+  .hero .tagline {
+    color: var(--gold);
+    font-style: italic;
+    font-size: 18px;
+    margin-top: 6px;
+  }
+  .hero .from {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 4px;
+  }
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 26px 0 18px;
+    padding: 8px 18px;
+    border: 1px solid rgba(143, 208, 106, .4);
+    border-radius: 999px;
+    color: var(--green);
+    font-size: 14px;
+    background: rgba(143, 208, 106, .07);
+  }
+  .status::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+  }
+  .btn {
+    display: inline-block;
+    background: var(--gold);
+    color: #241d08;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 14px 38px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background .2s, transform .1s;
+  }
+  .btn:hover { background: var(--gold-bright); }
+  .btn:active { transform: scale(.97); }
+  .hero .note {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 12px;
+  }
+
+  /* ===== возможности ===== */
+  section { max-width: 960px; margin: 0 auto; padding: 40px 20px; width: 100%; }
+  section h2 {
+    font: bold 26px Georgia, serif;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  section .sub {
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid rgba(200, 168, 75, .35);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .card .icon { font-size: 28px; margin-bottom: 12px; }
+  .card h3 {
+    font-size: 17px;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .card p { color: var(--muted); font-size: 14px; }
+
+  /* ===== версии ===== */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .chips .chip {
+    background: rgba(0, 0, 0, .45);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 7px 18px;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .chips .chip.more { color: var(--muted); border-style: dashed; }
+
+  /* ===== подвал ===== */
+  footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 36px 20px 28px;
+    border-top: 1px solid rgba(200, 168, 75, .25);
+  }
+  footer .splash {
+    color: #ffff55;
+    font: italic bold 15px 'Segoe UI', sans-serif;
+    cursor: pointer;
+    user-select: none;
+  }
+  footer .splash:hover { text-shadow: 0 0 10px rgba(255, 255, 85, .5); }
+  footer .copy { color: var(--muted); font-size: 13px; margin-top: 10px; }
+
+  @media (max-width: 560px) {
+    nav { display: none; }
+    .hero h1 { font-size: 30px; }
+    .hero .logo-big { width: 72px; height: 72px; font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">YA</div>
+  <div class="brand">
+    <b>YA LAUNCHER</b>
+    <small>Yet Another Launcher!</small>
+  </div>
+  <nav>
+    <a href="#features">Возможности</a>
+    <a href="#versions">Версии</a>
+    <a href="#download">Скачать</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="logo-big">YA</div>
+  <h1>YA LAUNCHER</h1>
+  <div class="tagline">Yet Another Launcher!</div>
+  <div class="from">Лаунчер для Minecraft от компании JCorp</div>
+  <div class="status">Готов к запуску: доступно 103 версии</div>
+  <div id="download">
+    <a class="btn" href="data:application/octet-stream;base64," download="YALauncher-Setup.exe">Скачать для Windows</a>
+  </div>
+  <div class="note">Windows 10/11 · Java подключается автоматически</div>
+</div>
+
+<section id="features">
+  <h2>Что внутри</h2>
+  <div class="sub">Три причины нажать «Играть» и не думать больше ни о чём</div>
+  <div class="cards">
+    <div class="card">
+      <div class="icon">📦</div>
+      <h3>103 версии из коробки</h3>
+      <p>От релизов до снапшотов — выбирай любую версию и жми «Играть».
+         Ничего скачивать вручную не нужно.</p>
+    </div>
+    <div class="card">
+      <div class="icon">☕</div>
+      <h3>Java сама найдётся</h3>
+      <p>Оставь поле пустым — лаунчер сам найдёт или скачает нужную Java.
+         Или укажи свою через «Обзор...».</p>
+    </div>
+    <div class="card">
+      <div class="icon">🧩</div>
+      <h3>Серверы и моды рядом</h3>
+      <p>Кнопки «Серверы», «Моды» и «Папка игры» — всё в одном окне,
+         без лишних вкладок и настроек.</p>
+    </div>
+  </div>
+</section>
+
+<section id="versions">
+  <h2>Популярные версии</h2>
+  <div class="sub">А ещё — все снапшоты и релизы вплоть до самых первых</div>
+  <div class="chips">
+    <span class="chip">26.1</span>
+    <span class="chip">1.20.x</span>
+    <span class="chip">1.16.5</span>
+    <span class="chip">1.12.2</span>
+    <span class="chip more">…и ещё 98</span>
+  </div>
+</section>
+
+<footer>
+  <div class="splash" id="splash" title="Кликни — будет другая фраза">
+    Сделано на коленке!
+  </div>
+  <div class="copy">© 2026 JCorp. Все права защищены.</div>
+</footer>
+
+<script>
+  // те же сплэши, что в kSplashes лаунчера
+  const splashes = [
+    'Сделано на коленке!',
+    'tar — наш герой!',
+    'Никаких DLL из интернета!',
+    'Собрано за один вечер!',
+    'Абсолютно офлайн!',
+    'Это не TLauncher. Честно.',
+    'Yet Another Launcher!',
+    'Крипера нет. Пока что.',
+    'Не забудь про скин!',
+    'Осторожно, зомби!',
+    '100% твой собственный!',
+    'Больше пространства!'
+  ];
+  let i = Math.floor(Math.random() * splashes.length);
+  const el = document.getElementById('splash');
+  el.textContent = splashes[i];
+  el.addEventListener('click', () => {
+    i = (i + 1) % splashes.length;
+    el.textContent = splashes[i];
+  });
+</script>
+
+</body>
+</html>
